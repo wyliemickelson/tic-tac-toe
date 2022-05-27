@@ -29,7 +29,7 @@ end
 # small testing
 myBoard = Board.new
 myBoard.display_board
-puts "WWWWWWWWWWWWWWWWWWWWW"
+puts "WWWWWWWWWWWWWWWWWWWW"
 p1 = Player.new('X')
 # byebug
 myBoard.update_board([0,0], p1)
