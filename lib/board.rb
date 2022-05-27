@@ -2,35 +2,26 @@ require_relative 'player.rb'
 require 'byebug'
 
 class Board
-  attr_accessor :cells
+
+  @@WINNING_COMBOS = [ [1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 6], [3, 6, 9] ]
+  attr_reader :cells
 
   def initialize
-    @cells = Array.new(3) {Array.new(3, " ")}
+    @cells = Array.new(9)
+    @cells.map!.with_index { |cell, index| cell = index }
   end
 
   def display_board
-    @cells.each do |row| 
-      row.each_with_index do |cell, column| 
-        print " #{cell} "
-        print "|" unless column == 2
-      end
-      puts "\n ---------\n"
-    end
+    puts <<-HEREDOC
+       #{cells[0]} | #{cells[1]} | #{cells[2]}
+      ---+---+---
+       #{cells[3]} | #{cells[4]} | #{cells[5]}
+      ---+---+---
+       #{cells[6]} | #{cells[7]} | #{cells[8]}
+    HEREDOC
   end
 
-  def update_board(position, player)
-    symbol = player.game_symbol
-    row = position[0]
-    column = position[1]
-    @cells[row][column] = symbol
+  def update_board(cell, symbol)
+    @cell = symbol
   end
 end
-
-# small testing
-myBoard = Board.new
-myBoard.display_board
-puts "WWWWWWWWWWWWWWWWWWWW"
-p1 = Player.new('X')
-# byebug
-myBoard.update_board([0,0], p1)
-myBoard.display_board

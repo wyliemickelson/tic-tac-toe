@@ -1,9 +1,8 @@
 class Player
-  attr_reader :game_symbol
-  attr_accessor :my_turn
+  attr_reader  :name, :game_symbol
 
-  def initialize(game_symbol)
-    @my_turn = false
+  def initialize(name, game_symbol)
+    @name = name
     @game_symbol = game_symbol
   end
 end
