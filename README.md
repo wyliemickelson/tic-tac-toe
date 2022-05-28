@@ -1,1 +1,1 @@
-# tic-tac-toe
+# A command-line based Tic-Tac-Toe Game
