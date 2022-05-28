@@ -16,6 +16,10 @@ module Display
     "Congratulations, #{player.name}! You Win!"
   end
 
+  def display_draw
+    "Game over! It's a draw!"
+  end
+
   def display_play_again_prompt
     "Would you like to play again? (y/n): "
   end

@@ -24,7 +24,11 @@ class Game
       end
       turn(current_player)
     end
-    puts display_game_over(current_player)
+    if draw?
+      puts display_draw
+    else
+      puts display_game_over(current_player)
+    end
     play if play_again?
     puts display_tfp
   end
@@ -51,9 +55,15 @@ class Game
   end
 
   def game_over?
-    Board.WINNING_COMBOS.any? do |combo|
+    winner = Board.WINNING_COMBOS.any? do |combo|
       combo.all? { |pos| board.cells[pos] == current_player.symbol }
     end
+    draw = draw?
+    winner || draw
+  end
+
+  def draw?
+    board.cells.all? { |cell| cell == player_1.symbol || cell == player_2.symbol }
   end
 
   def name_input(p_num)
