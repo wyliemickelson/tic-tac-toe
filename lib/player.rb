@@ -1,8 +1,9 @@
 class Player
-  attr_reader  :name, :game_symbol
+  attr_reader  :name, :symbol, :number
 
-  def initialize(name, game_symbol)
+  def initialize(name, symbol, number)
     @name = name
-    @game_symbol = game_symbol
+    @game_symbol = symbol
+    @number = number
   end
 end
