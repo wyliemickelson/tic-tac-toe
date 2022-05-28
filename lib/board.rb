@@ -1,7 +1,7 @@
 class Board
 
-  @@WINNING_COMBOS = [ [1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 6], [3, 6, 9] ]
-  attr_reader :cells
+  @@WINNING_COMBOS = [ [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6] ]
+  attr_reader :cells, :WINNING_COMBOS
 
   def initialize
     @cells = Array.new(9)
@@ -14,11 +14,15 @@ class Board
       ---+---+---
        #{cells[3]} | #{cells[4]} | #{cells[5]}
       ---+---+---
-       #{cells[6]} | #{cells[7]} | #{cells[8]}
+       #{cells[6]} | #{cells[7]} | #{cells[8]}\n
     HEREDOC
   end
 
-  def update_board(cell, symbol)
-    @cell = symbol
+  def update_board(pos, symbol)
+    @cells[pos] = symbol
+  end
+
+  def self.WINNING_COMBOS
+    @@WINNING_COMBOS
   end
 end

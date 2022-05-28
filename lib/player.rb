@@ -3,7 +3,7 @@ class Player
 
   def initialize(name, symbol, number)
     @name = name
-    @game_symbol = symbol
+    @symbol = symbol
     @number = number
   end
 end
